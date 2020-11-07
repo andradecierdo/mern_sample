@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./config/docker/Dockerfile.${ENV}
+    container_name: app
+    env_file:
+      - .env
+    ports:
+      - '8080:80'
+    restart: on-failure
+    volumes:
+      - /adally-client/node_modules
+      - .:/adally-client

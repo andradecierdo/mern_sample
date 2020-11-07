@@ -1,0 +1,21 @@
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Webpack transpiled, minified content
+dist
+build
+
+# Dependency directories
+node_modules/
+npm-debug.log
+
+# Environment
+.env
+
+# IDE
+.idea
+.graphqlconfig
+schema.graphql

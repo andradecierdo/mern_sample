@@ -1,0 +1,7 @@
+.git
+.gitignore
+.prettierrc.js
+
+build
+node_modules
+npm-debug.log

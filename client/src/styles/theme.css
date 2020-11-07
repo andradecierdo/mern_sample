@@ -1,0 +1,222 @@
+/* Global variables */
+:root {
+  /* -------------------------------------------------------------------------------- */
+  /* Custom styles for assorted elements
+  /* -------------------------------------------------------------------------------- */
+  --__404-content-width: 600px;
+  --__404-not-found-text-size: 75px;
+  --__404-text-size: 200px;
+  --arrow-right-length: 13px;
+  --arrow-right-size: 12px;
+  --audit-results-main-url-max-width: 310px;
+  --auditing-row-color: #ffffc3;
+  --background-color: #fff;
+  --badge-border-radius: 30px;
+  --badge-dot-width-height: 15px;
+  --badge-font-size: 12px;
+  --badge-width: 10px;
+  --border: solid 1px #ccc;
+  --border-radius: 5px;
+  --border-radius-oval: 30px;
+  --border-size: 1px;
+  --card-background-color: #fff;
+  --card-min-width: 400px;
+  --card-shadow: 1px 2px 5px 2px rgba(0, 0, 0, 0.26);
+  --code-snippet-textarea: 400px;
+  --code-snippet-text-shadow: 0 0 2px #000;
+  --codemirror-height: 400px;
+  --dropdown-content-top: 45px;
+  --dropdown-hover-color: #ccc;
+  --excerpt-width: 400px;
+  --hovered-background-color: var(--color-dark-grey-b);
+  --hovered-background-color-top-nav: rgba(0, 0, 0, 0.08);
+  --iax-logo-width: 40%;
+  --image-width: 90px;
+  --input-text-height: 38px;
+  --inline-border-radius-left: 5px 0 0 5px;
+  --inline-border-radius-right: 0 5px 5px 0;
+  --inline-form-input-width: 300px;
+  --line-number-background-color: #3c3c3c;
+  --line-number-width: 25px;
+  --login-background-color: #eaeaea;
+  --login-width: 400px;
+  --login-padding-top: 90px;
+  --modal-wrapper-background-color: #0009;
+
+  /* -------------------------------------------------------------------------------- */
+  /* Custom color for specific html elements
+  /* -------------------------------------------------------------------------------- */
+  --breadcrumb-background-color: #eaeaea;
+  --breadcrumb-background-color-hover: #3f3f3f;
+  --icon-dark: #3f3f3f;
+  --icon-light: #fff;
+  --link-color: #21409a;
+
+  /* -------------------------------------------------------------------------------- */
+  /* Side navigation and body styles
+  /* -------------------------------------------------------------------------------- */
+  --body-width: calc(100% - var(--side-nav-width));
+  --side-nav-border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+  --side-nav-width: 288px;
+  --side-nav-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+
+  /* -------------------------------------------------------------------------------- */
+  /* Avatar styles
+  /* -------------------------------------------------------------------------------- */
+  --avatar-border-radius: 20px;
+  --avatar-height: 20px;
+  --avatar-width: 20px;
+
+  /* -------------------------------------------------------------------------------- */
+  /* Button styles
+  /* -------------------------------------------------------------------------------- */
+  --button-border-radius: 4px;
+  --button-disabled-background-color: #ccc;
+  --button-disabled-font-color: #999;
+  --button-min-width: 70px;
+
+  /* -------------------------------------------------------------------------------- */
+  /* Main color
+  /* -------------------------------------------------------------------------------- */
+  --color-critical: #970e18;
+  --color-default: #fff;
+  --color-danger: #cd4a54;
+  --color-dark-grey-a: #252525;
+  --color-dark-grey-b: #1d1d1d;
+  --color-notice: #3f3f3f;
+  --color-primary: #21409a;
+  --color-success: #008a65;
+  --color-warning: #bb9917;
+
+  /* -------------------------------------------------------------------------------- */
+  /* Hovering filter
+  /* -------------------------------------------------------------------------------- */
+  --light-filter-a: brightness(115%);
+  --light-filter-b: brightness(145%);
+  --dark-filter: brightness(95%);
+
+  /* -------------------------------------------------------------------------------- */
+  /* Font styles
+  /* -------------------------------------------------------------------------------- */
+  --font-color-light: #fff;
+  --font-color-secondary: #a1a1a1;
+  --font-family: Lato, sans-serif;
+  --font-family-monospace: Monaco, Menlo, Consolas, 'Courier New', monospace;
+  --font-weight-unset: unset;
+  --form-label-width: 100px;
+
+  /* -------------------------------------------------------------------------------- */
+  /* Panel styles
+  /* -------------------------------------------------------------------------------- */
+  --one-sided-border: solid 4px;
+  --panel-border-left: var(--one-sided-border);
+
+  /* -------------------------------------------------------------------------------- */
+  /* PopUp styles
+  /* -------------------------------------------------------------------------------- */
+  --popup-critical-border: var(--one-sided-border) var(--color-critical);
+  --popup-danger-border: var(--one-sided-border) var(--color-danger);
+  --popup-max-width: 520px;
+  --popup-min-width: 300px;
+  --popup-primary-border: var(--one-sided-border) var(--color-primary);
+  --popup-success-border: var(--one-sided-border) var(--color-success);
+  --popup-warning-border: var(--one-sided-border) var(--color-warning);
+  --popup-width: 300px;
+  --popup-z-index: 10;
+
+  /* -------------------------------------------------------------------------------- */
+  /* Scanform styles
+  /* -------------------------------------------------------------------------------- */
+  --scan-form-button-width: 210px;
+  --scan-form-title: 33px;
+  --scan-form-max-width: 600px;
+
+  /* -------------------------------------------------------------------------------- */
+  /* Data table styes
+  /* -------------------------------------------------------------------------------- */
+  --table-actions-width: 90px;
+  --table-audit-type-min-width: 80px;
+  --table-date-of-audit-min-width: 160px;
+  --table-public-url-min-width: 200px;
+  --table-stripe-color: #eee;
+  --table-status-width: 30px;
+
+  /* -------------------------------------------------------------------------------- */
+  /* Top navigation
+  /* -------------------------------------------------------------------------------- */
+  --top-nav-height: 50px;
+  --top-nav-min-width: 134px;
+  --top-nav-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  --top-nav-z-index: 7;
+}
+
+/* ----------- Desktop Screens ----------- */
+@media screen and (min-width: 1200px) {
+  :root {
+    --spacing-size-a: 5px;
+    --spacing-size-b: 10px;
+    --spacing-size-c: 15px;
+    --spacing-size-d: 20px;
+    --spacing-size-e: 30px;
+
+    --text-size-l: 16px;
+    --text-size-m: 14px;
+    --text-size-sm: 11px;
+    --text-size-xl: 24px;
+    --text-size-xxl: 32px;
+
+    --audit-page-width: 60%;
+    --public-homepage-container-width: 70%;
+    --public-logo-height: 60px;
+    --side-nav-width: 190px;
+  }
+}
+
+/* ----------- Tablet Screens ----------- */
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  :root {
+    --spacing-size-a: 3px;
+    --spacing-size-b: 8px;
+    --spacing-size-c: 13px;
+    --spacing-size-d: 15px;
+    --spacing-size-e: 20px;
+
+    --text-size-l: 14px;
+    --text-size-m: 12px;
+    --text-size-sm: 9px;
+    --text-size-xl: 18px;
+    --text-size-xxl: 24px;
+
+    --audit-page-width: 100%;
+    --public-homepage-container-width: 90%;
+    --public-logo-height: 40px;
+    --side-nav-width: 170px;
+  }
+}
+
+/* ----------- Mobile Screens ----------- */
+@media only screen and (max-width: 768px) {
+  :root {
+    --spacing-size-a: 3px;
+    --spacing-size-b: 8px;
+    --spacing-size-c: 11px;
+    --spacing-size-d: 13px;
+    --spacing-size-e: 17px;
+
+    --text-size-l: 12px;
+    --text-size-m: 10px;
+    --text-size-sm: 9px;
+    --text-size-xl: 16px;
+    --text-size-xxl: 20px;
+
+    --audit-page-width: 100%;
+    --public-homepage-container-width: 95%;
+    --public-logo-height: 30px;
+    --side-nav-width: 60px;
+
+    --viewport-width-text-size-3: 3vw;
+    --viewport-width-text-size-4: 4vw;
+  }
+}

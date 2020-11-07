@@ -1,0 +1,253 @@
+@import url(./theme.css);
+
+html,
+body,
+#app {
+  background-color: var(--background-color);
+  font-family: var(--font-family);
+  height: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+p {
+  color: var(--color-notice);
+}
+
+div#app > div {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+input,
+textarea,
+select,
+table,
+div.loading h2,
+div.score-box h1,
+div.score-box h2,
+div.score-box h3,
+div.url-display,
+div.panel,
+div.audit-modal h3,
+div.audit-trail-modal h3,
+div.ip-list-modal h3,
+div.report-modal h3,
+div.definition-box li {
+  color: var(--color-notice);
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+form {
+  font-size: var(--text-size-m);
+}
+
+form table.data-table tbody tr td.form-label {
+  text-align: right;
+  width: var(--form-label-width);
+}
+
+form table.data-table tbody tr {
+  background-color: unset;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+.center-text, table.data-table th.center-text, table.data-table td.center-text {
+  text-align: center;
+}
+
+table.data-table td.center-text {
+  text-align: center;
+}
+
+.input-select {
+  padding: var(--spacing-size-b);
+  height: var(--input-text-height);
+}
+
+.input-text,
+.input-select {
+  border: var(--border);
+  border-radius: var(--button-border-radius);
+  box-sizing: border-box;
+}
+
+.input-text.input-md {
+  font-size: var(--text-size-m);
+  padding: var(--spacing-size-b) var(--spacing-size-c);
+}
+
+.input-select {
+  border: var(--border);
+  border-radius: var(--button-border-radius);
+  box-sizing: border-box;
+}
+
+.input-select.input-md {
+  font-size: var(--text-size-m);
+  padding: var(--spacing-size-b) var(--spacing-size-c);
+}
+
+input.input-text {
+  padding: var(--spacing-size-b);
+  height: var(--input-text-height);
+}
+
+div.card form input.input-text {
+  width: 100%;
+}
+
+.App {
+  text-align: center;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+pre {
+  text-align: left;
+}
+
+button:focus {
+  outline: none;
+}
+
+.word-break {
+  word-break: break-all;
+  word-break: break-word;
+  -ms-word-break: break-all;
+}
+
+.excerpt {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: var(--excerpt-width);
+}
+
+.flex {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+div.flex.panels {
+  margin: var(--spacing-size-e) 0;
+}
+
+pre {
+  background-color: var(--breadcrumb-background-color);
+  display: inherit;
+  text-align: left;
+}
+
+.icon-dark,
+.icon-light {
+  vertical-align: top;
+}
+
+.icon-dark {
+  fill: var(--icon-dark);
+}
+
+.icon-light {
+  fill: var(--icon-light);
+}
+
+.icon-danger {
+  fill: var(--color-danger);
+}
+
+.icon-primary {
+  fill: var(--color-primary);
+}
+
+.icon-warning {
+  fill: var(--color-warning);
+}
+
+.text-center,
+table.data-table td.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+td.table-form-buttons {
+  display: flex;
+}
+
+td.table-form-buttons a:not(:first-child),
+td.table-form-buttons button:not(:first-child) {
+  margin: 0 0 0 var(--spacing-size-b);
+}
+
+div.top-bar {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.color-danger {
+  color: var(--color-danger);
+}
+
+.color-warning {
+  color: var(--color-warning);
+}
+
+.color-notice {
+  color: var(--color-success);
+}
+
+.color-primary {
+  color: var(--color-primary);
+}
+
+.read-only {
+  background-color: var(--breadcrumb-background-color);
+}
+
+@media screen and (max-width: 1200px) {
+  #public-homepage-container div.public-page-head div.logo-container {
+    display: block;
+    margin: auto;
+    padding: 0 0 var(--spacing-size-c);
+  }
+
+  #public-homepage-container div.public-page-head {
+    flex-wrap: wrap;
+  }
+
+  #public-homepage-container div.public-page-head > div {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #public-homepage-container div.panel + div.panel {
+    margin: var(--spacing-size-b) 0 0;
+  }
+
+  #public-homepage-container div.public-page-head div.title h1 {
+    font-size: var(--viewport-width-text-size-4);
+  }
+
+  #public-homepage-container div.public-page-head div.logo-container > h3 {
+    font-size: var(--viewport-width-text-size-3);
+  }
+}

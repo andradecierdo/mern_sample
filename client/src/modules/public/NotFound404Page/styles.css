@@ -1,0 +1,35 @@
+div.__404-container {
+  background-color: var(--login-background-color);
+  box-sizing: border-box;
+  height: 100%;
+}
+
+div.__404-content {
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: var(--__404-content-width);
+}
+
+div.__404-content h1, div.__404-content h3, div.__404-content a {
+  color: var(--font-color-light);
+}
+
+div.__404-content h1.larger {
+  font-size: var(--__404-text-size);
+  margin: 0 0 -40px;
+}
+div.__404-content h1 {
+  font-size: var(--__404-not-found-text-size);
+  margin: 0;
+}
+
+div.__404-content h3 {
+  margin: var(--spacing-size-a) 0;
+}
+
+div.__404-content a {
+  text-decoration: underline;
+}
