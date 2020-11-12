@@ -15,6 +15,7 @@ const User = new Schema(
       required: true,
       type: String,
     },
+    parentId: mongoose.Schema.Types.ObjectId,
     name: String,
     type: String,
   },

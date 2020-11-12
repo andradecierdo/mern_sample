@@ -9,7 +9,6 @@ const GET_PAGINATION_FILTER = gql`
       currentPage
       limit
       skip
-      url
     }
   }
 `

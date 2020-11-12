@@ -1,9 +1,9 @@
 interface IUserUpdateInput {
-  access: string[]
+  address: string
   email: string
   password: string
+  name: string
   type: string
-  websiteIds: string[]
 }
 
 export default IUserUpdateInput

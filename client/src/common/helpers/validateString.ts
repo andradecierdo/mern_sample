@@ -1,8 +1,5 @@
 const validateString = (value: string): boolean => {
-  if (typeof value === 'string') {
-    return true
-  }
-  return false
+  return typeof value === 'string'
 }
 
 export default validateString

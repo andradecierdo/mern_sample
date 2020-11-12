@@ -1,3 +1,6 @@
 export { default as userCreate } from './userCreate'
+export { default as userDelete } from './userDelete'
 export { default as userLogin } from './userLogin'
-export { default as userUpdateProfile } from './userUpdateProfile'
+export { default as userRegister } from './userRegister'
+export { default as userUpdate } from './userUpdate'
+// export { default as userUpdateProfile } from './userUpdateProfile'

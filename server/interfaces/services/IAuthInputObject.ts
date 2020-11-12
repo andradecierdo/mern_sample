@@ -3,6 +3,7 @@ interface IAuthInputObject {
   address: string
   email: string
   expiration: Date
+  parentId: string
   name: string
   type: string
 }

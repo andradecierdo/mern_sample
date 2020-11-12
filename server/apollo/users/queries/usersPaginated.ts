@@ -23,6 +23,7 @@ const usersPaginated = async (
     sort: { createdAt: -1 },
   }
   const userModel = new UserModel()
+
   return userModel.getAllPaginatedUsers(options)
 }
 

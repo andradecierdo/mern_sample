@@ -65,6 +65,7 @@ class AuthService {
       email: null,
       expiration: null,
       token: null,
+      parentId: null,
       name: null,
       type: null,
     }
@@ -83,6 +84,7 @@ class AuthService {
       address: user.address,
       email: user.email,
       expiration: this.getExpiration(),
+      parentId: user.parentId,
       name: user.name,
       type: user.type,
     }

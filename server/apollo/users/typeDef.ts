@@ -14,6 +14,7 @@ const typeDef = gql`
     createdAt: DateTime
     email: String
     name: String
+    parentId: String
     type: String
     updatedAt: DateTime
   }
@@ -24,20 +25,30 @@ const typeDef = gql`
     email: String
     expiration: String
     token: String
+    parentId: String
     name: String
     type: String
+  }
+
+  type UserDelete {
+    n: Int
+    ok: Int
+    deletedCount: Int
   }
 
   extend type Query {
     user(_id: ID!): User
     users: [User!]
     usersPaginated(input: IUsersPaginatedInput): UserPaginated
+    usersByParentPaginated(input: IUsersPaginatedInput): UserPaginated
   }
 
   extend type Mutation {
-    userCreate(input: UserUpsertInput): User!
+    userCreate(input: UserCreateInput): User!
+    userDelete(_id: ID!): UserDelete!
+    userRegister(input: UserCreateInput): User!
+    userUpdate(_id: ID!, input: UserUpdateInput): User!
     userLogin(input: UserAuthInput): Auth!
-    userUpdateProfile(_id: ID!, input: UserUpdateProfileInput): User!
   }
 
   input IUsersPaginatedInput {
@@ -50,7 +61,7 @@ const typeDef = gql`
     password: String!
   }
 
-  input UserUpsertInput {
+  input UserCreateInput {
     address: String!
     email: String!
     password: String!
@@ -58,9 +69,12 @@ const typeDef = gql`
     type: String!
   }
 
-  input UserUpdateProfileInput {
+  input UserUpdateInput {
+    address: String!
     email: String!
-    password: String!
+    password: String
+    name: String!
+    type: String!
   }
 `
 

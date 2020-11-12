@@ -1,8 +1,9 @@
 interface IUserCreateInputPasswordHashed {
-  address: string[]
+  address: string
   email: string
   hashedPassword: string
   name: string
+  parentId?: string,
   type: string
 }
 

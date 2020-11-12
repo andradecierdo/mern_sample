@@ -36,10 +36,30 @@ class UserModel extends ActiveRecord {
     return user
   }
 
+  public deleteById = async (userId: string): Promise<IUser> => {
+    return this.deleteOne({ _id: userId })
+  }
+
   public getAll = async (): Promise<IUser[]> => {
     return this.find(this.userTypeFilter, {
       sort: { createdAt: -1 },
     })
+  }
+
+  public getAllPaginatedUsersByParent = async (
+    parentId: string,
+    options: IModelOptionsInput,
+  ): Promise<IPaginatedData<IUser[]>> => {
+    const filter = Object.assign({}, this.userTypeFilter, { parentId })
+    const data: IUser[] = await this.find(filter, options)
+    const total: number = await this.count({ parentId })
+    const { limit, skip } = options
+    return {
+      data,
+      limit,
+      skip,
+      total,
+    }
   }
 
   public getAllPaginatedUsers = async (
@@ -65,9 +85,9 @@ class UserModel extends ActiveRecord {
     return this.findOne({ email })
   }
 
-  public updateUserProfileById = async (
+  public updateUserById = async (
     userId: string,
-    userInput: IUserUpdateProfileInput,
+    userInput: IUserUpdateInputPasswordHashed,
   ): Promise<IUser> => {
     const userFilter = Object.assign({ _id: userId }, this.userTypeFilter)
     return this.update(userFilter, userInput)

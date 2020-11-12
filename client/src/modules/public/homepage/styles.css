@@ -1,0 +1,19 @@
+div.homepage-container {
+    background-color: var(--login-background-color);
+    box-sizing: border-box;
+    height: 100%;
+}
+
+div.homepage-content {
+    left: 50%;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: var(--homepage-content-width);
+}
+
+div.homepage-content h1, div.homepage-content h3, div.homepage-content a {
+    color: var(--font-color-light);
+}
+

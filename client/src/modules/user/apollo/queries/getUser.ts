@@ -1,4 +1,4 @@
-import { IQuery, IUser } from '../../interfaces'
+import { IQuery, IUser } from '../../../../interfaces'
 import gql from 'graphql-tag'
 import { useQuery } from '@apollo/react-hooks'
 
@@ -6,10 +6,10 @@ const QUERY_USER = gql`
   query User($_id: ID!) {
     user(_id: $_id) {
       _id
-      access
+      address
       email
+      name
       type
-      websiteIds
     }
   }
 `

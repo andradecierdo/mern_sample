@@ -4,6 +4,7 @@ interface IAuthenticatedUser {
   email: string
   expiration: Date
   token: string
+  parentId: string
   name: string
   type: string
 }

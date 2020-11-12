@@ -1,9 +1,9 @@
-interface IUserUpdateInput {
-  access: string[]
+interface IUserUpdateInputPasswordHashed {
+  address: string
   email: string
-  hashedPassword: string
+  hashedPassword?: string
+  name: string
   type: string
-  websiteIds: string[]
 }
 
-export default IUserUpdateInput
+export default IUserUpdateInputPasswordHashed

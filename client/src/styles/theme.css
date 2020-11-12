@@ -8,8 +8,6 @@
   --__404-text-size: 200px;
   --arrow-right-length: 13px;
   --arrow-right-size: 12px;
-  --audit-results-main-url-max-width: 310px;
-  --auditing-row-color: #ffffc3;
   --background-color: #fff;
   --badge-border-radius: 30px;
   --badge-dot-width-height: 15px;
@@ -28,9 +26,9 @@
   --dropdown-content-top: 45px;
   --dropdown-hover-color: #ccc;
   --excerpt-width: 400px;
+  --homepage-content-width: 600px;
   --hovered-background-color: var(--color-dark-grey-b);
   --hovered-background-color-top-nav: rgba(0, 0, 0, 0.08);
-  --iax-logo-width: 40%;
   --image-width: 90px;
   --input-text-height: 38px;
   --inline-border-radius-left: 5px 0 0 5px;
@@ -38,9 +36,9 @@
   --inline-form-input-width: 300px;
   --line-number-background-color: #3c3c3c;
   --line-number-width: 25px;
-  --login-background-color: #eaeaea;
+  --login-background-color: #133337;
   --login-width: 400px;
-  --login-padding-top: 90px;
+  --login-padding-top: 200px;
   --modal-wrapper-background-color: #0009;
 
   /* -------------------------------------------------------------------------------- */
@@ -85,7 +83,7 @@
   --color-dark-grey-a: #252525;
   --color-dark-grey-b: #1d1d1d;
   --color-notice: #3f3f3f;
-  --color-primary: #21409a;
+  --color-primary: #1d7e96;
   --color-success: #008a65;
   --color-warning: #bb9917;
 
@@ -167,7 +165,6 @@
     --text-size-xl: 24px;
     --text-size-xxl: 32px;
 
-    --audit-page-width: 60%;
     --public-homepage-container-width: 70%;
     --public-logo-height: 60px;
     --side-nav-width: 190px;
@@ -189,7 +186,6 @@
     --text-size-xl: 18px;
     --text-size-xxl: 24px;
 
-    --audit-page-width: 100%;
     --public-homepage-container-width: 90%;
     --public-logo-height: 40px;
     --side-nav-width: 170px;
@@ -211,7 +207,6 @@
     --text-size-xl: 16px;
     --text-size-xxl: 20px;
 
-    --audit-page-width: 100%;
     --public-homepage-container-width: 95%;
     --public-logo-height: 30px;
     --side-nav-width: 60px;

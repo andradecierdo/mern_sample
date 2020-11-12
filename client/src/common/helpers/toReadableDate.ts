@@ -3,11 +3,9 @@ const toReadableDate = (dateString: string | Date): string => {
     return 'N/A'
   }
 
-  const formattedDate = new Date(dateString).toLocaleString('en-US', {
+  return new Date(dateString).toLocaleString('en-US', {
     timeZone: 'America/New_York',
   })
-
-  return formattedDate
 }
 
 export default toReadableDate

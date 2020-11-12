@@ -8,10 +8,11 @@ interface IProps {
   size?: string
   style?: string
   title?: string
+  type?: 'submit' | 'reset' | 'button'
 }
 
 const Button: FunctionComponent<IProps> = (props: IProps): ReactElement => {
-  const { children, disabled, onClick, size, style, title } = props
+  const { children, disabled, onClick, size, style, title, type } = props
   const className = `${style || 'default'} ${size || ''} ${(disabled && 'disabled') ||
     ''}`
 
@@ -20,7 +21,9 @@ const Button: FunctionComponent<IProps> = (props: IProps): ReactElement => {
       className={className}
       disabled={disabled || false}
       onClick={onClick}
-      title={title || ''}>
+      title={title || ''}
+      type={type}
+    >
       {children}
     </button>
   )

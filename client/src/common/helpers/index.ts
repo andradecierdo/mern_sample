@@ -1,3 +1,4 @@
+export { default as isAuthenticated } from './isAuthenticated'
 export { default as isCurrentAuthenticated } from './isCurrentAuthenticated'
 export { default as convertNumberWithCommas } from './convertNumberWithCommas'
 export { default as redirectToLoginPageIfAuthTokenIsExpired } from './redirectToLoginPageIfAuthTokenIsExpired'

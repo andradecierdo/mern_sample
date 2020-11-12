@@ -222,32 +222,140 @@ div.top-bar {
   background-color: var(--breadcrumb-background-color);
 }
 
-@media screen and (max-width: 1200px) {
-  #public-homepage-container div.public-page-head div.logo-container {
-    display: block;
-    margin: auto;
-    padding: 0 0 var(--spacing-size-c);
-  }
-
-  #public-homepage-container div.public-page-head {
-    flex-wrap: wrap;
-  }
-
-  #public-homepage-container div.public-page-head > div {
-    width: 100%;
-  }
+div#login {
+  --version-text-size: 12px;
+  background-color: var(--background-color);
+  box-shadow: var(--card-shadow);
+  margin: auto;
+  padding: var(--spacing-size-d) 0;
+  width: var(--login-width);
+  border-radius: 10px;
 }
 
-@media screen and (max-width: 768px) {
-  #public-homepage-container div.panel + div.panel {
-    margin: var(--spacing-size-b) 0 0;
-  }
+div.login-container {
+  background-color: var(--login-background-color);
+  box-sizing: border-box;
+  padding: var(--login-padding-top) 0 0 0;
+}
 
-  #public-homepage-container div.public-page-head div.title h1 {
-    font-size: var(--viewport-width-text-size-4);
-  }
+div#login > form > div.body, div#login > div.footer {
+  padding: var(--spacing-size-d) var(--spacing-size-e);
+}
 
-  #public-homepage-container div.public-page-head div.logo-container > h3 {
-    font-size: var(--viewport-width-text-size-3);
-  }
+div#login > div.header {
+  padding: var(--spacing-size-c) 0;
+}
+
+div#login > div.header > h1 {
+  padding: var(--spacing-size-b) 0 0 0;
+}
+
+div#login > div.header > h4 {
+  font-size: var(--text-size-m);
+  padding: var(--spacing-size-a) 0 0 0;
+}
+
+div#login > div.header > h4.error-message {
+  color: var(--color-danger);
+  text-align: center;
+}
+
+div#login > div.header > h1, div#login > div.header > h4 {
+  font-weight: var(--font-weight-unset);
+  margin: 0;
+  text-align: center;
+}
+
+div#login > form > div.body > div.form-row {
+  margin: var(--spacing-size-a) 0;
+}
+
+div#login > form > div.body > div.form-row > label,
+div#login > form > div.body > div.form-row > input {
+  width: 100%;
+}
+
+div#login > form > div.body > div.form-row > label {
+  display: inline-block;
+  font-size: var(--text-size-m);
+  padding: 0 0 var(--spacing-size-a) 0;
+}
+
+div#login > form > div.body > div.form-row > input {
+  border: var(--border);
+  border-radius: var(--button-border-radius);
+  box-sizing: border-box;
+  font-size: var(--text-size-m);
+  padding: var(--spacing-size-c) var(--spacing-size-d);
+}
+
+div#login > form > div.body > div.form-row {
+  display: inline-block;
+  width: 100%;
+}
+
+div#login > form > div.footer {
+  display: flex;
+  flex-direction: column;
+  padding: 0 var(--spacing-size-e);
+}
+
+div#login > form > div.footer > button,
+div#login > form > div.footer > div.forgot-password {
+  display: inline-block;
+}
+
+div#login > form > div.footer > div.forgot-password {
+  font-size: var(--text-size-m);
+  padding: var(--spacing-size-b) 0 0;
+  text-align: center;
+}
+
+div#login > form > div.footer > div.forgot-password a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+div#login > form > div.footer > div.forgot-password a:hover {
+  filter: var(--light-filter-a);
+}
+
+div#login div.footer span {
+  font-size: var(--version-text-size);
+}
+
+div.__404-container {
+  background-color: var(--login-background-color);
+  box-sizing: border-box;
+  height: 100%;
+}
+
+div.__404-content {
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: var(--__404-content-width);
+}
+
+div.__404-content h1, div.__404-content h3, div.__404-content a {
+  color: var(--font-color-light);
+}
+
+div.__404-content h1.larger {
+  font-size: var(--__404-text-size);
+  margin: 0 0 -40px;
+}
+div.__404-content h1 {
+  font-size: var(--__404-not-found-text-size);
+  margin: 0;
+}
+
+div.__404-content h3 {
+  margin: var(--spacing-size-a) 0;
+}
+
+div.__404-content a {
+  text-decoration: underline;
 }

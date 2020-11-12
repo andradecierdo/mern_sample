@@ -1,6 +1,5 @@
 import React, { FunctionComponent, ReactElement } from 'react'
 import { RouteComponentProps } from '@reach/router'
-import './styles.css'
 
 const NotFound404Page: FunctionComponent<RouteComponentProps> = (): ReactElement => {
   return (

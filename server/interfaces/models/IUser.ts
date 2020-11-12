@@ -3,6 +3,7 @@ interface IUser {
   address: string
   email: string
   hashedPassword: string
+  parentId: string
   name: string
   type: string
 }

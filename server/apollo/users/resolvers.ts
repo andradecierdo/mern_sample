@@ -1,15 +1,18 @@
-import { user, users, usersPaginated } from './queries'
-import { userCreate, userLogin, userUpdateProfile } from './mutations'
+import { user, users, usersByParentPaginated, usersPaginated } from './queries'
+import { userCreate, userDelete, userLogin, userRegister, userUpdate } from './mutations'
 
 const resolvers = {
   Mutation: {
     userCreate,
+    userDelete,
     userLogin,
-    userUpdateProfile,
+    userRegister,
+    userUpdate,
   },
   Query: {
     user,
     users,
+    usersByParentPaginated,
     usersPaginated,
   },
 }

@@ -2,15 +2,15 @@
 import { MutationHookOptions, MutationTuple, useMutation } from '@apollo/react-hooks'
 import gql from 'graphql-tag'
 
-const USER_CREATE = gql`
-  mutation UserCreate(
-    $address: String!
-    $email: String!
-    $password: String!
-    $name: String!
-    $type: String!
+const USER_REGISTER = gql`
+  mutation UserRegister(
+      $address: String!
+      $email: String!
+      $password: String!
+      $name: String!
+      $type: String!
   ) {
-    userCreate(
+    userRegister(
       input: {
         address: $address
         email: $email
@@ -28,10 +28,10 @@ const USER_CREATE = gql`
   }
 `
 
-const userCreate = (
+const register = (
   options: MutationHookOptions<any, Record<string, any>>
 ): MutationTuple<any, Record<string, any>> => {
-  return useMutation(USER_CREATE, options)
+  return useMutation(USER_REGISTER, options)
 }
 
-export default userCreate
+export default register

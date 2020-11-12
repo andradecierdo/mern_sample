@@ -12,7 +12,6 @@ import Cookies from 'js-cookie'
 import { IAuth } from '../../../interfaces'
 import { routes } from '../../../common/constants'
 import { userLogin } from '../../../apollo/mutations'
-import './styles.css'
 
 const LoginPage: FunctionComponent<RouteComponentProps> = (): ReactElement => {
   const [errorMessage, setErrorMessage] = useState(null)
@@ -20,7 +19,7 @@ const LoginPage: FunctionComponent<RouteComponentProps> = (): ReactElement => {
     onCompleted(data: { userLogin: IAuth }) {
       if (data.userLogin._id !== null) {
         Cookies.set('auth', JSON.stringify(data.userLogin), { expires: 30 })
-        navigate(routes.homepage)
+        navigate(routes.usersPage)
       } else {
         setErrorMessage('Invalid Credentials!')
       }
@@ -82,9 +81,8 @@ const LoginPage: FunctionComponent<RouteComponentProps> = (): ReactElement => {
           </div>
           <div className='footer text-center'>
             <Button style='primary' size='large' onClick={handleSignIn}>
-              <FaKey className='icon-light' size={18} /> Login
+              Login
             </Button>
-            <br />
           </div>
         </form>
       </div>

@@ -3,6 +3,7 @@ import Cookies from 'js-cookie'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { createHttpLink } from 'apollo-link-http'
 import { setContext } from 'apollo-link-context'
+import userPaginationState from "./local/userPaginationState";
 
 const httpLink = createHttpLink({
   uri: `${process.env.SERVER_URL}/graphql`,
@@ -25,6 +26,12 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   resolvers: {},
   typeDefs: [],
+})
+
+client.writeData({
+  data: {
+    userPaginationState: userPaginationState.defaultState,
+  },
 })
 
 export default client

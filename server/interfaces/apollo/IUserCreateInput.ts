@@ -1,5 +1,5 @@
 interface IUserCreateInput {
-  address: string[]
+  address: string
   email: string
   password: string
   name: string
