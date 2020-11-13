@@ -17,6 +17,7 @@ import ListItemText from '@material-ui/core/ListItemText'
 import SupervisedUserCircle from '@material-ui/icons/SupervisedUserCircle'
 import PowerSettingsNew from '@material-ui/icons/PowerSettingsNew'
 import AccountBox from '@material-ui/icons/AccountBox'
+import House from '@material-ui/icons/House'
 import * as Cookies from 'js-cookie';
 import {navigate} from '@reach/router';
 import {routes} from '../../constants';
@@ -150,6 +151,11 @@ const SideMenu: FunctionComponent<IProps> = (props: IProps): ReactElement => {
           </IconButton>
         </div>
         <Divider />
+        <ListItem button key='home' onClick={() => handleRedirect(routes.homepage)}>
+          <ListItemIcon><House /></ListItemIcon>
+          <ListItemText primary='Home' />
+        </ListItem>
+        <Divider light />
         <ListItem button key='users' onClick={() => handleRedirect(routes.usersPage)}>
           <ListItemIcon><SupervisedUserCircle /></ListItemIcon>
           <ListItemText primary='Users List' />
@@ -158,6 +164,7 @@ const SideMenu: FunctionComponent<IProps> = (props: IProps): ReactElement => {
           <ListItemIcon><AccountBox /></ListItemIcon>
           <ListItemText primary='Create User' />
         </ListItem>
+        <Divider light />
         <ListItem button key='logout' onClick={handleLogout}>
           <ListItemIcon><PowerSettingsNew /></ListItemIcon>
           <ListItemText primary='Logout' />

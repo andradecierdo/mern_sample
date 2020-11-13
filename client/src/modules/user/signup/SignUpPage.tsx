@@ -12,6 +12,8 @@ import { register as userRegisterMutation } from '../apollo/mutations'
 import { routes } from '../../../common/constants'
 import IUserInputForm from '../../../interfaces/apollo/IUserInputForm';
 
+import { AssignmentInd, Assignment, Lock, PanTool, Email } from '@material-ui/icons'
+
 const SignUpPage: FunctionComponent<RouteComponentProps> = (): ReactElement => {
   const { handleSubmit, register, setError, errors, clearErrors } = useForm()
 
@@ -62,6 +64,10 @@ const SignUpPage: FunctionComponent<RouteComponentProps> = (): ReactElement => {
     })
   }
 
+  const handleRedirect = (route: string): void => {
+    navigate(route)
+  }
+
   return (
     <React.Fragment>
       <div id='login'>
@@ -72,7 +78,7 @@ const SignUpPage: FunctionComponent<RouteComponentProps> = (): ReactElement => {
           <div className='body'>
             <div className='form-row'>
               <label>
-                <MdEmail className='icon-dark' size={18} /> Email
+                <Email fontSize='small' /> Email
               </label>
               <input
                 name='email'
@@ -88,7 +94,7 @@ const SignUpPage: FunctionComponent<RouteComponentProps> = (): ReactElement => {
             </div>
             <div className='form-row'>
               <label>
-                <MdEmail className='icon-dark' size={18} /> Name
+                <AssignmentInd fontSize='small' /> Name
               </label>
               <input
                 name='name'
@@ -104,7 +110,7 @@ const SignUpPage: FunctionComponent<RouteComponentProps> = (): ReactElement => {
             </div>
             <div className='form-row'>
               <label>
-                <MdEmail className='icon-dark' size={18} /> Address
+                <Assignment fontSize='small' /> Address
               </label>
               <input
                 name='address'
@@ -116,7 +122,7 @@ const SignUpPage: FunctionComponent<RouteComponentProps> = (): ReactElement => {
             </div>
             <div className='form-row'>
               <label>
-                <MdEmail className='icon-dark' size={18} /> Type
+                <PanTool fontSize='small' /> Type
               </label>
               <input
                 name='type'
@@ -128,7 +134,7 @@ const SignUpPage: FunctionComponent<RouteComponentProps> = (): ReactElement => {
             </div>
             <div className='form-row'>
               <label>
-                <MdEmail className='icon-dark' size={18} /> Password
+                <Lock fontSize='small' /> Password
               </label>
               <input
                 value={password}
@@ -145,7 +151,7 @@ const SignUpPage: FunctionComponent<RouteComponentProps> = (): ReactElement => {
             </div>
             <div className='form-row'>
               <label>
-                <MdEmail className='icon-dark' size={18} /> Confirm Password
+                <Lock fontSize='small' /> Confirm Password
               </label>
               <input
                 value={confirmPassword}
@@ -165,6 +171,10 @@ const SignUpPage: FunctionComponent<RouteComponentProps> = (): ReactElement => {
             <Button type='submit' style='primary' size='large'>Submit</Button>
           </div>
         </form>
+        <div id='login-link'>
+          Already have an account? Login
+          <a onClick={() => handleRedirect(routes.loginPage)}> here!</a>
+        </div>
       </div>
     </React.Fragment>
   )

@@ -46,6 +46,10 @@ const LoginPage: FunctionComponent<RouteComponentProps> = (): ReactElement => {
     })
   }
 
+  const handleRedirect = (route: string): void => {
+    navigate(route)
+  }
+
   return (
     <div className='login-container'>
       <div id='login'>
@@ -83,6 +87,10 @@ const LoginPage: FunctionComponent<RouteComponentProps> = (): ReactElement => {
             <Button style='primary' size='large' onClick={handleSignIn}>
               Login
             </Button>
+          </div>
+          <div id='sign-up-link'>
+            New user? Sign up
+            <a onClick={() => handleRedirect(routes.signUpPage)}> here!</a>
           </div>
         </form>
       </div>

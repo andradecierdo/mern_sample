@@ -14,6 +14,8 @@ import { routes } from '../../../common/constants'
 import IUserInputForm from '../../../interfaces/apollo/IUserInputForm'
 import {IQuery, IUser} from '../../../interfaces'
 
+import { AssignmentInd, Assignment, PanTool, Email } from '@material-ui/icons'
+
 const EditPage: FunctionComponent<RouteComponentProps> = (props: { userId: string}): ReactElement => {
   const { handleSubmit, register, errors } = useForm();
   const { userId } = props
@@ -87,7 +89,7 @@ const EditPage: FunctionComponent<RouteComponentProps> = (props: { userId: strin
           <div className='body'>
             <div className='form-row'>
               <label>
-                <MdEmail className='icon-dark' size={18}/> Email
+                <Email fontSize='small' /> Email
               </label>
               <input
                 onChange={handleEmailChange}
@@ -105,7 +107,7 @@ const EditPage: FunctionComponent<RouteComponentProps> = (props: { userId: strin
             </div>
             <div className='form-row'>
               <label>
-                <MdEmail className='icon-dark' size={18}/> Name
+                <AssignmentInd fontSize='small' /> Name
               </label>
               <input
                 onChange={handleNameChange}
@@ -123,7 +125,7 @@ const EditPage: FunctionComponent<RouteComponentProps> = (props: { userId: strin
             </div>
             <div className='form-row'>
               <label>
-                <MdEmail className='icon-dark' size={18}/> Address
+                <Assignment fontSize='small' /> Address
               </label>
               <input
                 onChange={handleAddressChange}
@@ -137,7 +139,7 @@ const EditPage: FunctionComponent<RouteComponentProps> = (props: { userId: strin
             </div>
             <div className='form-row'>
               <label>
-                <MdEmail className='icon-dark' size={18}/> Type
+                <PanTool fontSize='small' /> Type
               </label>
               <input
                 onChange={handleTypeChange}

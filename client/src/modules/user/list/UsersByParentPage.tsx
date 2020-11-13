@@ -3,10 +3,10 @@ import React, {
   ReactElement,
 } from 'react'
 import { RouteComponentProps, navigate } from '@reach/router'
-import { getUsersByParentPaginated} from '../apollo/queries'
-import {deleteUser as userDeleteMutation, update as userUpdateMutation} from '../apollo/mutations'
-import {IQuery, IUser, IUserPaginated} from '../../../interfaces'
-import {Container} from '@material-ui/core'
+import { getUsersByParentPaginated } from '../apollo/queries'
+import { deleteUser as userDeleteMutation } from '../apollo/mutations'
+import { IQuery, IUser, IUserPaginated } from '../../../interfaces'
+import { Container } from '@material-ui/core'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
@@ -15,8 +15,8 @@ import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
-import {routes} from "../../../common/constants";
-import DialogBox from "../../../common/components/Dialog";
+import {routes} from '../../../common/constants'
+import DialogBox from '../../../common/components/Dialog'
 
 const useStyles = makeStyles({
   container: {
@@ -72,9 +72,9 @@ const UsersByParentPage: FunctionComponent<RouteComponentProps> = (): ReactEleme
 
   return (
     <Container maxWidth='xl' className={classes.container}>
-      { users && users.data.map((user: IUser) => {
+      { !loading && users.data.map((user: IUser) => {
         return (
-          <Card className={classes.root}>
+          <Card key={`${user._id}-index`} className={classes.root}>
             <CardActionArea>
               <CardContent>
                 <Typography gutterBottom variant='h5' component='h2'>

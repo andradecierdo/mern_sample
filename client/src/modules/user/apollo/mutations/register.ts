@@ -4,11 +4,11 @@ import gql from 'graphql-tag'
 
 const USER_REGISTER = gql`
   mutation UserRegister(
-      $address: String!
-      $email: String!
-      $password: String!
-      $name: String!
-      $type: String!
+    $address: String!
+    $email: String!
+    $password: String!
+    $name: String!
+    $type: String!
   ) {
     userRegister(
       input: {

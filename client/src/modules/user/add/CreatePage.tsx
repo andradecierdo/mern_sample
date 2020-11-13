@@ -6,11 +6,12 @@ import React, {
 } from 'react'
 import { useForm } from 'react-hook-form'
 import { RouteComponentProps, navigate } from '@reach/router'
-import { MdEmail } from 'react-icons/all'
 import { Button } from '../../../common'
 import { create as userCreateMutation } from '../apollo/mutations'
 import { routes } from '../../../common/constants'
 import IUserInputForm from '../../../interfaces/apollo/IUserInputForm'
+
+import { AssignmentInd, Assignment, Lock, PanTool, Email } from '@material-ui/icons'
 
 const CreatePage: FunctionComponent<RouteComponentProps> = (): ReactElement => {
   const { handleSubmit, register, setError, errors, clearErrors } = useForm()
@@ -49,7 +50,6 @@ const CreatePage: FunctionComponent<RouteComponentProps> = (): ReactElement => {
 
   const handleCreateUser = (userInput: IUserInputForm): void => {
     event.preventDefault()
-    console.log('userInput', userInput)
     const { address, email, password, name, type } = userInput
 
     userCreate({
@@ -73,7 +73,7 @@ const CreatePage: FunctionComponent<RouteComponentProps> = (): ReactElement => {
           <div className='body'>
             <div className='form-row'>
               <label>
-                <MdEmail className='icon-dark' size={18} /> Email
+                <Email fontSize='small' /> Email
               </label>
               <input
                 name='email'
@@ -89,7 +89,7 @@ const CreatePage: FunctionComponent<RouteComponentProps> = (): ReactElement => {
             </div>
             <div className='form-row'>
               <label>
-                <MdEmail className='icon-dark' size={18} /> Name
+                <AssignmentInd fontSize='small' /> Name
               </label>
               <input
                 name='name'
@@ -105,7 +105,7 @@ const CreatePage: FunctionComponent<RouteComponentProps> = (): ReactElement => {
             </div>
             <div className='form-row'>
               <label>
-                <MdEmail className='icon-dark' size={18} /> Address
+                <Assignment fontSize='small' /> Address
               </label>
               <input
                 name='address'
@@ -117,7 +117,7 @@ const CreatePage: FunctionComponent<RouteComponentProps> = (): ReactElement => {
             </div>
             <div className='form-row'>
               <label>
-                <MdEmail className='icon-dark' size={18} /> Type
+                <PanTool fontSize='small' /> Type
               </label>
               <input
                 name='type'
@@ -129,7 +129,7 @@ const CreatePage: FunctionComponent<RouteComponentProps> = (): ReactElement => {
             </div>
             <div className='form-row'>
               <label>
-                <MdEmail className='icon-dark' size={18} /> Password
+                <Lock fontSize='small' /> Password
               </label>
               <input
                 value={password}
@@ -146,7 +146,7 @@ const CreatePage: FunctionComponent<RouteComponentProps> = (): ReactElement => {
             </div>
             <div className='form-row'>
               <label>
-                <MdEmail className='icon-dark' size={18} /> Confirm Password
+                <Lock fontSize='small' /> Confirm Password
               </label>
               <input
                 value={confirmPassword}
