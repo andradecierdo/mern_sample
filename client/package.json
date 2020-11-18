@@ -1,13 +1,12 @@
 {
   "name": "mern-client-acsd",
-  "version": "2.3.16",
+  "version": "1.0.0",
   "description": "",
   "scripts": {
     "build": "webpack --mode production --config ./config/webpack/webpack.config.js",
     "dev": "webpack-dev-server --mode development --config ./config/webpack/webpack.config.js",
     "lint": "eslint -c ./config/eslint/.eslintrc.js 'src/**/*.{ts,tsx}' --ignore-pattern '*.test.*'",
-    "start": "serve -l 80 -s dist",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "serve -l 80 -s dist"
   },
   "repository": {
     "type": "git",
@@ -68,7 +67,10 @@
     "react-dom": "^16.12.0",
     "react-hook-form": "^6.11.0",
     "react-icons": "^3.9.0",
+    "react-redux": "^7.2.2",
     "react-select": "^3.1.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "warning": "^4.0.3"
   }
 }

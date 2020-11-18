@@ -10,7 +10,7 @@ const typeDef = gql`
 
   type User {
     _id: ID!
-    address:String
+    address: String
     createdAt: DateTime
     email: String
     name: String
@@ -30,7 +30,7 @@ const typeDef = gql`
     type: String
   }
 
-  type UserDelete {
+  type UserDeleteOutput {
     n: Int
     ok: Int
     deletedCount: Int
@@ -45,7 +45,7 @@ const typeDef = gql`
 
   extend type Mutation {
     userCreate(input: UserCreateInput): User!
-    userDelete(_id: ID!): UserDelete!
+    userDelete(_id: ID!): UserDeleteOutput!
     userRegister(input: UserCreateInput): User!
     userUpdate(_id: ID!, input: UserUpdateInput): User!
     userLogin(input: UserAuthInput): Auth!

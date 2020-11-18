@@ -1,99 +1,103 @@
 import React, { FunctionComponent, ReactElement } from 'react'
-import clsx from 'clsx'
+// eslint-disable-next-line sort-imports
+import {
+  AccountBox,
+  ChevronLeft,
+  ChevronRight,
+  House,
+  Menu,
+  PowerSettingsNew,
+  SupervisedUserCircle,
+} from '@material-ui/icons'
+import {
+  AppBar,
+  CssBaseline,
+  Divider,
+  Drawer,
+  IconButton,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Toolbar,
+  Typography,
+} from '@material-ui/core'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
-import Drawer from '@material-ui/core/Drawer'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import CssBaseline from '@material-ui/core/CssBaseline'
-import Typography from '@material-ui/core/Typography'
-import Divider from '@material-ui/core/Divider'
-import IconButton from '@material-ui/core/IconButton'
-import MenuIcon from '@material-ui/icons/Menu'
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
-import ChevronRightIcon from '@material-ui/icons/ChevronRight'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemIcon from '@material-ui/core/ListItemIcon'
-import ListItemText from '@material-ui/core/ListItemText'
-import SupervisedUserCircle from '@material-ui/icons/SupervisedUserCircle'
-import PowerSettingsNew from '@material-ui/icons/PowerSettingsNew'
-import AccountBox from '@material-ui/icons/AccountBox'
-import House from '@material-ui/icons/House'
-import * as Cookies from 'js-cookie';
-import {navigate} from '@reach/router';
-import {routes} from '../../constants';
+
+import clsx from 'clsx'
+
+import { navigate } from '@reach/router'
+import { routes } from '../../constants'
+import * as Cookies from 'js-cookie'
 
 const drawerWidth = 240
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   appBar: {
-    zIndex: theme.zIndex.drawer + 1,
-    transition: theme.transitions.create(['width', 'margin'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
     backgroundColor: '#1a8296',
+    transition: theme.transitions.create(['width', 'margin'], {
+      duration: theme.transitions.duration.leavingScreen,
+      easing: theme.transitions.easing.sharp,
+    }),
+    zIndex: theme.zIndex.drawer + 1,
   },
   appBarShift: {
     marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
     transition: theme.transitions.create(['width', 'margin'], {
-      easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
+      easing: theme.transitions.easing.sharp,
     }),
-  },
-  menuButton: {
-    marginRight: 36,
-  },
-  hide: {
-    display: 'none',
+    width: `calc(100% - ${drawerWidth}px)`,
   },
   drawer: {
-    width: drawerWidth,
     flexShrink: 0,
     whiteSpace: 'nowrap',
-  },
-  drawerOpen: {
     width: drawerWidth,
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
   },
   drawerClose: {
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
     overflowX: 'hidden',
+    transition: theme.transitions.create('width', {
+      duration: theme.transitions.duration.leavingScreen,
+      easing: theme.transitions.easing.sharp,
+    }),
     width: theme.spacing(7) + 1,
     [theme.breakpoints.up('sm')]: {
       width: theme.spacing(9) + 1,
     },
   },
+  drawerOpen: {
+    transition: theme.transitions.create('width', {
+      duration: theme.transitions.duration.enteringScreen,
+      easing: theme.transitions.easing.sharp,
+    }),
+    width: drawerWidth,
+  },
+  hide: {
+    display: 'none',
+  },
+  menuButton: {
+    marginRight: 36,
+  },
   toolbar: {
-    display: 'flex',
     alignItems: 'center',
+    display: 'flex',
     justifyContent: 'flex-end',
     padding: theme.spacing(0, 1),
     ...theme.mixins.toolbar,
   },
-}));
+}))
 
-interface IProps {
-}
+const SideMenu: FunctionComponent = (): ReactElement => {
+  const classes = useStyles()
+  const theme = useTheme()
+  const [open, setOpen] = React.useState(false)
 
-const SideMenu: FunctionComponent<IProps> = (props: IProps): ReactElement => {
-  const classes = useStyles();
-  const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const handleDrawerOpen = (): void => {
+    setOpen(true)
+  }
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
+  const handleDrawerClose = (): void => {
+    setOpen(false)
+  }
 
   const handleLogout = (): void => {
     event.preventDefault()
@@ -113,8 +117,7 @@ const SideMenu: FunctionComponent<IProps> = (props: IProps): ReactElement => {
         position='fixed'
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
-        })}
-      >
+        })}>
         <Toolbar>
           <IconButton
             color='inherit'
@@ -123,9 +126,8 @@ const SideMenu: FunctionComponent<IProps> = (props: IProps): ReactElement => {
             edge='start'
             className={clsx(classes.menuButton, {
               [classes.hide]: open,
-            })}
-          >
-            <MenuIcon />
+            })}>
+            <Menu />
           </IconButton>
           <Typography variant='h6' noWrap>
             Sample MERN Web Application
@@ -143,30 +145,43 @@ const SideMenu: FunctionComponent<IProps> = (props: IProps): ReactElement => {
             [classes.drawerOpen]: open,
             [classes.drawerClose]: !open,
           }),
-        }}
-      >
+        }}>
         <div className={classes.toolbar}>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+            {theme.direction === 'rtl' ? <ChevronRight /> : <ChevronLeft />}
           </IconButton>
         </div>
         <Divider />
-        <ListItem button key='home' onClick={() => handleRedirect(routes.homepage)}>
-          <ListItemIcon><House /></ListItemIcon>
+        <ListItem button key='home' onClick={(): void => handleRedirect(routes.homepage)}>
+          <ListItemIcon>
+            <House />
+          </ListItemIcon>
           <ListItemText primary='Home' />
         </ListItem>
         <Divider light />
-        <ListItem button key='users' onClick={() => handleRedirect(routes.usersPage)}>
-          <ListItemIcon><SupervisedUserCircle /></ListItemIcon>
+        <ListItem
+          button
+          key='users'
+          onClick={(): void => handleRedirect(routes.usersPage)}>
+          <ListItemIcon>
+            <SupervisedUserCircle />
+          </ListItemIcon>
           <ListItemText primary='Users List' />
         </ListItem>
-        <ListItem button key='users' onClick={() => handleRedirect(routes.userCreatePage)}>
-          <ListItemIcon><AccountBox /></ListItemIcon>
+        <ListItem
+          button
+          key='users'
+          onClick={(): void => handleRedirect(routes.userCreatePage)}>
+          <ListItemIcon>
+            <AccountBox />
+          </ListItemIcon>
           <ListItemText primary='Create User' />
         </ListItem>
         <Divider light />
         <ListItem button key='logout' onClick={handleLogout}>
-          <ListItemIcon><PowerSettingsNew /></ListItemIcon>
+          <ListItemIcon>
+            <PowerSettingsNew />
+          </ListItemIcon>
           <ListItemText primary='Logout' />
         </ListItem>
       </Drawer>

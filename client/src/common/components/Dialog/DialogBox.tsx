@@ -1,42 +1,49 @@
-import React from 'react'
-import Button from '@material-ui/core/Button'
-import Dialog from '@material-ui/core/Dialog'
-import DialogActions from '@material-ui/core/DialogActions'
-import DialogTitle from '@material-ui/core/DialogTitle'
+import React, { FunctionComponent, PropsWithChildren, ReactElement } from 'react'
+// eslint-disable-next-line sort-imports
+import { Button, Dialog, DialogActions, DialogTitle } from '@material-ui/core'
 
-export default function DialogBox(props) {
-  const { onAccept, onReject, onClose, open } = props
+interface IDialogBox {
+  headerMessage: string
+  onAccept: () => void
+  onReject: () => void
+  onClose: () => void
+  open: boolean
+}
 
-  const handleClose = () => {
+export const DialogBox: FunctionComponent<IDialogBox> = (
+  props: PropsWithChildren<IDialogBox>
+): ReactElement => {
+  const { headerMessage, onAccept, onReject, onClose, open } = props
+
+  const handleClose = (): void => {
     onClose()
-  };
+  }
 
-  const handleCancel = () => {
+  const handleCancel = (): void => {
     onReject()
-  };
+  }
 
-  const handleAgree = () => {
+  const handleAgree = (): void => {
     onAccept()
-  };
+  }
 
   return (
-    <div>
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby='alert-dialog-title'
-        aria-describedby='alert-dialog-description'
-      >
-        <DialogTitle id='alert-dialog-title'>Are you sure you want to delete?</DialogTitle>
-        <DialogActions>
-          <Button onClick={handleCancel} color='primary'>
-            Cancel
-          </Button>
-          <Button onClick={handleAgree} color='secondary' autoFocus>
-            Delete
-          </Button>
-        </DialogActions>
-      </Dialog>
-    </div>
+    <Dialog
+      open={open}
+      onClose={handleClose}
+      aria-labelledby='alert-dialog-title'
+      aria-describedby='alert-dialog-description'>
+      <DialogTitle id='alert-dialog-title'>{headerMessage}</DialogTitle>
+      <DialogActions>
+        <Button onClick={handleCancel} color='primary'>
+          Cancel
+        </Button>
+        <Button onClick={handleAgree} color='secondary' autoFocus>
+          Delete
+        </Button>
+      </DialogActions>
+    </Dialog>
   )
 }
+
+export default DialogBox

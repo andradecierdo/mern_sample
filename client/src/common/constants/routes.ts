@@ -2,9 +2,9 @@ const routes = {
   homepage: '/',
   loginPage: '/login',
   signUpPage: '/signup',
+  userCreatePage: '/users/create',
   userEditPage: '/users/edit',
   usersPage: '/users',
-  userCreatePage: '/users/create',
 }
 
 export default routes

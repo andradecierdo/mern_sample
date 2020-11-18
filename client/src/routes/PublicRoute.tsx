@@ -1,8 +1,8 @@
 import React, { FunctionComponent, ReactElement } from 'react'
+import { Redirect, RouteComponentProps } from '@reach/router'
+import { PublicComponent } from '../layout'
 import { isAuthenticated } from '../common/helpers'
-import { Redirect, RouteComponentProps} from '@reach/router'
-import {routes} from '../common/constants'
-import {PublicComponent} from '../layout'
+import { routes } from '../common/constants'
 
 interface IRouterWrapperProps extends RouteComponentProps {
   component: FunctionComponent<RouteComponentProps>
@@ -13,7 +13,11 @@ const PublicRoute: FunctionComponent<IRouterWrapperProps> = ({
   ...props
 }: IRouterWrapperProps): ReactElement => {
   if (!isAuthenticated()) {
-    return <PublicComponent {...props}><Component {...props}/></PublicComponent>
+    return (
+      <PublicComponent {...props}>
+        <Component {...props} />
+      </PublicComponent>
+    )
   }
   return <Redirect from='' to={routes.usersPage} noThrow />
 }

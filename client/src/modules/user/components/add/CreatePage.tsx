@@ -1,17 +1,13 @@
-import React, {
-  FunctionComponent,
-  ReactElement,
-  useEffect,
-  useState,
-} from 'react'
-import { useForm } from 'react-hook-form'
+import React, { FunctionComponent, ReactElement, useEffect, useState } from 'react'
+// eslint-disable-next-line sort-imports
+import { Assignment, AssignmentInd, Email, Lock, PanTool } from '@material-ui/icons'
 import { RouteComponentProps, navigate } from '@reach/router'
-import { Button } from '../../../common'
-import { create as userCreateMutation } from '../apollo/mutations'
-import { routes } from '../../../common/constants'
-import IUserInputForm from '../../../interfaces/apollo/IUserInputForm'
 
-import { AssignmentInd, Assignment, Lock, PanTool, Email } from '@material-ui/icons'
+import { Button } from '../../../../common'
+import IUserInputForm from '../../../../interfaces/apollo/IUserInputForm'
+import { routes } from '../../../../common/constants'
+import { useForm } from 'react-hook-form'
+import { create as userCreateMutation } from '../../apollo/mutations'
 
 const CreatePage: FunctionComponent<RouteComponentProps> = (): ReactElement => {
   const { handleSubmit, register, setError, errors, clearErrors } = useForm()
@@ -24,12 +20,12 @@ const CreatePage: FunctionComponent<RouteComponentProps> = (): ReactElement => {
     setPassword(value)
   }
 
-  const handleConfirmPasswordChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleConfirmPasswordChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ): void => {
     const { value } = event.target
     setConfirmPassword(value)
   }
-
-  const onSubmit = values => handleCreateUser(values);
 
   const [userCreate] = userCreateMutation({
     onCompleted() {
@@ -40,8 +36,8 @@ const CreatePage: FunctionComponent<RouteComponentProps> = (): ReactElement => {
   useEffect((): void => {
     if (password !== confirmPassword && confirmPassword !== '' && password !== '') {
       setError('password_confirm', {
+        message: 'Passwords do not match!',
         type: 'manual',
-        message: 'Passwords do not match!'
       })
     } else {
       clearErrors('password_confirm')
@@ -56,12 +52,14 @@ const CreatePage: FunctionComponent<RouteComponentProps> = (): ReactElement => {
       variables: {
         address,
         email,
-        password,
         name,
+        password,
         type,
       },
     })
   }
+
+  const onSubmit = (values: IUserInputForm): void => handleCreateUser(values)
 
   return (
     <React.Fragment>
@@ -78,11 +76,11 @@ const CreatePage: FunctionComponent<RouteComponentProps> = (): ReactElement => {
               <input
                 name='email'
                 ref={register({
-                  required: 'Required',
                   pattern: {
+                    message: 'Invalid Email Address',
                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                    message: 'Invalid Email Address'
-                  }
+                  },
+                  required: 'Required',
                 })}
               />
               {errors.email && errors.email.message}
@@ -94,14 +92,18 @@ const CreatePage: FunctionComponent<RouteComponentProps> = (): ReactElement => {
               <input
                 name='name'
                 ref={register({
-                  required: 'Required',
-                  minLength: 4,
                   maxLength: 20,
+                  minLength: 4,
+                  required: 'Required',
                 })}
               />
               {errors.name && errors.name.message}
-              {errors.name && errors.name.type === 'minLength' && 'The name should have at least 4 characters'}
-              {errors.name && errors.name.type === 'maxLength' && 'The name should not exceed to 20 characters'}
+              {errors.name &&
+                errors.name.type === 'minLength' &&
+                'The name should have at least 4 characters'}
+              {errors.name &&
+                errors.name.type === 'maxLength' &&
+                'The name should not exceed to 20 characters'}
             </div>
             <div className='form-row'>
               <label>
@@ -137,9 +139,9 @@ const CreatePage: FunctionComponent<RouteComponentProps> = (): ReactElement => {
                 name='password'
                 onChange={handlePasswordChange}
                 ref={register({
-                  required: 'Required',
-                  minLength: 4,
                   maxLength: 20,
+                  minLength: 4,
+                  required: 'Required',
                 })}
               />
               {errors.password && errors.password.message}
@@ -154,16 +156,18 @@ const CreatePage: FunctionComponent<RouteComponentProps> = (): ReactElement => {
                 name='password_confirm'
                 onChange={handleConfirmPasswordChange}
                 ref={register({
-                  required: 'Required',
-                  minLength: 4,
                   maxLength: 20,
+                  minLength: 4,
+                  required: 'Required',
                 })}
               />
               {errors.password_confirm && errors.password_confirm.message}
             </div>
           </div>
           <div className='footer text-center'>
-            <Button type='submit' style='primary' size='large'>Submit</Button>
+            <Button type='submit' style='primary' size='large'>
+              Submit
+            </Button>
           </div>
         </form>
       </div>

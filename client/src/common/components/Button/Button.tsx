@@ -13,8 +13,9 @@ interface IProps {
 
 const Button: FunctionComponent<IProps> = (props: IProps): ReactElement => {
   const { children, disabled, onClick, size, style, title, type } = props
-  const className = `${style || 'default'} ${size || ''} ${(disabled && 'disabled') ||
-    ''}`
+  const className = `${style || 'default'} ${size || ''} ${
+    (disabled && 'disabled') || ''
+  }`
 
   return (
     <button
@@ -22,8 +23,7 @@ const Button: FunctionComponent<IProps> = (props: IProps): ReactElement => {
       disabled={disabled || false}
       onClick={onClick}
       title={title || ''}
-      type={type}
-    >
+      type={type}>
       {children}
     </button>
   )

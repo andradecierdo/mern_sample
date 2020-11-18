@@ -1,5 +1,4 @@
 import { IQuery, IUserPaginated } from '../../../../interfaces'
-import getUserPaginationState from '../../../../apollo/local/userPaginationState'
 import gql from 'graphql-tag'
 import { useQuery } from '@apollo/react-hooks'
 
@@ -19,9 +18,10 @@ const QUERY_USER_PAGINATED = gql`
 `
 
 const getUsersByParentPaginated = (): IQuery<IUserPaginated> => {
-  const { limit, skip } = getUserPaginationState.getStateValues()
+  const limit = 10
+  const skip = 0
 
-  const { data, error, loading } = useQuery(QUERY_USER_PAGINATED, {
+  const { data, error, loading, refetch } = useQuery(QUERY_USER_PAGINATED, {
     fetchPolicy: 'cache-and-network',
     variables: {
       limit,
@@ -38,6 +38,7 @@ const getUsersByParentPaginated = (): IQuery<IUserPaginated> => {
     },
     error,
     loading,
+    refetch,
   }
 }
 
