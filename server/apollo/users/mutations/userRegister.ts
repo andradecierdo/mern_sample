@@ -1,11 +1,11 @@
-import { IAuthenticatedUser, IUser, IUserCreateInput } from '../../../interfaces'
+import { IUser, IUserCreateInput } from '../../../interfaces'
 import { AuthService } from '../../../services'
 import User from '../../../mongoose/models/User'
 
 const userRegister = async (
-  root: object, { input }: { input: IUserCreateInput },
+  root: object,
+  { input }: { input: IUserCreateInput },
 ): Promise<IUser> => {
-
   const { address, email, password, name, type } = input
   const userModel = new User()
   const authService = new AuthService()

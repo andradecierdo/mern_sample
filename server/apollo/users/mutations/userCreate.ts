@@ -3,8 +3,9 @@ import { AuthService } from '../../../services'
 import User from '../../../mongoose/models/User'
 
 const userCreate = async (
-  root: object, { input }: { input: IUserCreateInput },
-  { auth }: { auth: IAuthenticatedUser }
+  root: object,
+  { input }: { input: IUserCreateInput },
+  { auth }: { auth: IAuthenticatedUser },
 ): Promise<IUser> => {
   if (!auth) {
     return null

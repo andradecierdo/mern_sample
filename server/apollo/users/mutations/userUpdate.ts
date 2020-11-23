@@ -1,11 +1,16 @@
-import {IAuthenticatedUser, IUser, IUserUpdateInput, IUserUpdateInputPasswordHashed} from '../../../interfaces'
+import {
+  IAuthenticatedUser,
+  IUser,
+  IUserUpdateInput,
+  IUserUpdateInputPasswordHashed,
+} from '../../../interfaces'
 import { AuthService } from '../../../services'
 import User from '../../../mongoose/models/User'
 
 const userUpdate = async (
   root: object,
   args: { _id: string; input: IUserUpdateInput },
-  { auth }: { auth: IAuthenticatedUser }
+  { auth }: { auth: IAuthenticatedUser },
 ): Promise<IUser> => {
   if (!auth) {
     return null
@@ -16,7 +21,7 @@ const userUpdate = async (
   const userModel = new User()
   const authServer = new AuthService()
   const hashedPassword = password ? await authServer.hashPassword(password) : null
-  let updateData: IUserUpdateInputPasswordHashed = {
+  const updateData: IUserUpdateInputPasswordHashed = {
     address,
     email,
     name,

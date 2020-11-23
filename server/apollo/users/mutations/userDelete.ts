@@ -1,11 +1,10 @@
-import {IAuthenticatedUser, IUser, IUserUpdateInput, IUserUpdateInputPasswordHashed} from '../../../interfaces'
-import { AuthService } from '../../../services'
+import { IAuthenticatedUser, IUser } from '../../../interfaces'
 import User from '../../../mongoose/models/User'
 
 const userDelete = async (
   root: object,
   args: { _id: string },
-  { auth }: { auth: IAuthenticatedUser }
+  { auth }: { auth: IAuthenticatedUser },
 ): Promise<IUser> => {
   if (!auth) {
     return null
